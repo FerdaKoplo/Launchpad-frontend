@@ -23,12 +23,12 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <div className="relative bg-white/20 backdrop-blur-xl border-2 border-white/40 p-8  rounded-t-2xl rounded-b-[5rem] shadow-lg w-full max-w-xl">
         {children}
         <>
-          <div className="rounded-full bg-white/10 border-white/30 border-r-4 absolute w-20 h-20 top-2   -left-10" />
-          <div className="rounded-full bg-white/15 border-white/30 border-r-4 absolute w-7 h-7 top-[7rem]   left-4" />
+          <div className="rounded-full animate-[var(--animate-bubble-float)] bg-white/10 border-white/30 border-r-4 absolute w-20 h-20 top-2   -left-10" />
+          <div className="rounded-full animate-[var(--animate-bubble-float)]  bg-white/15 border-white/30 border-r-4 absolute w-7 h-7 top-[7rem]   left-4" />
         </>
         <>
-          <div className="rounded-full bg-white/15 border-white/30 border-r-4 absolute w-7 h-7 bottom-[7rem]   right-4" />
-          <div className="rounded-full bg-white/10 border-white/30 border-r-4 absolute w-10 h-10 bottom-[10rem]   -right-7" />
+          <div className="rounded-full bg-white/15  animate-[var(--animate-bubble-float)] border-white/30 border-r-4 absolute w-7 h-7 bottom-[7rem]   right-4" />
+          <div className="rounded-full bg-white/10  animate-[var(--animate-bubble-float)] border-white/30 border-r-4 absolute w-10 h-10 bottom-[10rem]   -right-7" />
         </>
       </div>
     </div>
