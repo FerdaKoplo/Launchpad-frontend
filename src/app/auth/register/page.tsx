@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const page = () => {
   return (
-    <form action="" className="flex flex-col gap-10">
+    <form action="" className=" flex flex-col gap-10">
       <div className="flex text-white flex-col justify-center gap-4">
         <Label className="font-bold">Name</Label>
         <Input placeholder="Enter your name..." className="placeholder:text-white focus-visible:ring-white focus:ring-white border-white focus-visible:ring-0 focus-visible:ring-offset-0" />

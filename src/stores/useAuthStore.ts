@@ -1,32 +1,28 @@
+'use client'
+
 import { AuthState } from "@/interfaces/auth.interface";
 import { create } from "zustand";
-import Cookies from 'js-cookie'
-export const useAuthStore = create<AuthState>((set) => ({
-  accessToken: Cookies.get('accessToken') || null,
-  refreshToken: Cookies.get('refreshToken') || null,
+import { getCookie, setCookie, deleteCookie } from "cookies-next";
 
-  setTokens: (accessToken, refreshToken) => {
-    Cookies.set('accessToken', accessToken, { expires: 1 });
-    Cookies.set('refreshToken', refreshToken, { expires: 7 });
+export const useAuthStore = create<AuthState>((set) => ({
+  accessToken: null,
+  refreshToken: null,
+
+  loadTokens: () => {
+    const accessToken = getCookie('accessToken') as string | null;
+    const refreshToken = getCookie('refreshToken') as string | null;
+    set({ accessToken, refreshToken });
+  },
+
+  setTokens: (accessToken: string, refreshToken: string) => {
+    setCookie('accessToken', accessToken, { maxAge: 60 * 60 * 24 }); // 1 day
+    setCookie('refreshToken', refreshToken, { maxAge: 60 * 60 * 24 * 7 }); // 7 days
     set({ accessToken, refreshToken });
   },
 
   clearTokens: () => {
-    Cookies.remove('accessToken');
-    Cookies.remove('refreshToken');
+    deleteCookie('accessToken');
+    deleteCookie('refreshToken');
     set({ accessToken: null, refreshToken: null });
   },
-}))
-
-
-
-
-
-
-
-
-
-
-
-
-
+}));

@@ -6,7 +6,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="min-h-screen flex flex-col  items-center justify-center bg-gradient-to-b from-emerald-400 via-teal-500 to-cyan-500 relative overflow-hidden gap-5">
 
-      <div className="flex flex-col justify-center gap-2  items-center group">
+      <div className="flex flex-col justify-center gap-2 py-10  items-center group">
         <h1 className="text-5xl hover:scale-110 group-hover:[&:not(:hover)]:scale-90  duration-300 font-bold border-white/20 border-2 bg-gradient-to-tl
           from-emerald-300 ease-in-out via-teal-500 to-emerald-300 px-4 py-2 rounded-xl text-white">
           LAUNCHPAD
