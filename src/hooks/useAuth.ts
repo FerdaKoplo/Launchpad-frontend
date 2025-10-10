@@ -19,6 +19,7 @@ const useAuth = () => {
   const registerAccount = useMutation({
     mutationFn: (data: RegisterSchema) => registerService(data.name, data.email, data.password),
     onSuccess: (res) => setTokens(res.accessToken, res.refreshToken),
+
   })
 
   const logout = useMutation({

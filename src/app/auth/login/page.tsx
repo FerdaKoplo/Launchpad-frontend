@@ -8,17 +8,26 @@ import { loginSchema, LoginSchema } from "@/schema/login.schema"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useSearchParams, useRouter } from "next/navigation"
 
 const Login = () => {
 
+  const router = useRouter()
+  const searchParams = useSearchParams()
   const { login } = useAuth()
+  const redirect = searchParams.get('redirect') || '/dashboard'
+
   const { register, handleSubmit, formState: { errors } } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema)
   })
 
+  const onSubmit = async (data: LoginSchema) => {
+    await login.mutateAsync(data)
+    router.push(redirect)
+  }
 
   return (
-    <form onSubmit={handleSubmit((data) => login.mutate(data))} className="flex flex-col gap-10">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-10">
       <div className="flex text-white flex-col justify-center gap-4">
         <Label className="font-bold">Email</Label>
         <Input {...register("email")} placeholder="Enter your email..." className="placeholder:text-white focus-visible:ring-white focus:ring-white border-white focus-visible:ring-0 focus-visible:ring-offset-0" />

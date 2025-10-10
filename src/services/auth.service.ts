@@ -1,12 +1,13 @@
 import { api } from "@/api/api"
 
 export const loginService = async (email: string, password: string) => {
-  const res = await api.post('/login', { email, password })
+  const res = await api.post('/auth/login', { email, password })
   return res.data
 }
 
 export const registerService = async (name: string, email: string, password: string) => {
-  const res = await api.post('/register', { email, password, name })
+  const res = await api.post('/auth/register', { name, email, password })
+  console.log(res)
   return res.data
 }
 
