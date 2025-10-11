@@ -25,7 +25,7 @@ const SidebarItem: React.FC<Props> = ({ children, subMenu, href }) => {
           {children}
         </Link>
       ) : (
-        <Button onClick={toggleMenu}>
+        <Button className="bg-white hover:bg-white text-black " onClick={toggleMenu}>
           {children}
         </Button>
       )}

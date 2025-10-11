@@ -3,11 +3,11 @@
 
 import ResponsiveSidebar from "@/components/sidebar/responsive-sidebar";
 import SidebarItem from "@/components/sidebar/sidebar-item";
-import { useSidebar } from "@/hooks/useSidebar";
+import { useSidebarStore } from "@/stores/useSidebarStore";
 import Link from "next/link";
 
 export default function ClientProtectedLayout({ children }: { children: React.ReactNode }) {
-  const { isOpen } = useSidebar()
+  const { isOpen } = useSidebarStore()
 
   return (
     <div className="flex">

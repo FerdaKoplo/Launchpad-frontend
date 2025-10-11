@@ -4,7 +4,7 @@ import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md"
 import { useState } from "react"
 import { RxHamburgerMenu } from "react-icons/rx"
 import { Button } from "../ui/button"
-import { useSidebar } from "@/hooks/useSidebar"
+import { useSidebarStore } from "@/stores/useSidebarStore"
 
 interface Props {
   children?: React.ReactNode
@@ -12,7 +12,7 @@ interface Props {
 
 const ResponsiveSidebar: React.FC<Props> = ({ children }) => {
 
-  const { isOpen, toggle } = useSidebar()
+  const { isOpen, toggle } = useSidebarStore()
 
   return (
     <>
