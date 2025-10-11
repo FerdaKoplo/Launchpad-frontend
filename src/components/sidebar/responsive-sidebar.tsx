@@ -4,6 +4,7 @@ import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md"
 import { useState } from "react"
 import { RxHamburgerMenu } from "react-icons/rx"
 import { Button } from "../ui/button"
+import { useSidebar } from "@/hooks/useSidebar"
 
 interface Props {
   children?: React.ReactNode
@@ -11,10 +12,7 @@ interface Props {
 
 const ResponsiveSidebar: React.FC<Props> = ({ children }) => {
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const toggleMenu = () => setIsOpen(prev => !prev)
-
-
+  const { isOpen, toggle } = useSidebar()
 
   return (
     <>
@@ -25,7 +23,7 @@ const ResponsiveSidebar: React.FC<Props> = ({ children }) => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        <Button onClick={toggleMenu}>
+        <Button onClick={toggle} className="cursor-pointer bg-transparent text-black hover:bg-transparent">
           <MdOutlineKeyboardDoubleArrowLeft className="rotate-180" />
         </Button>
         {children}
@@ -37,7 +35,7 @@ const ResponsiveSidebar: React.FC<Props> = ({ children }) => {
           ${isOpen ? "-translate-x-100 pointer-events-none" : "translate-x-0"}
         `}
       >
-        <Button onClick={toggleMenu}>
+        <Button onClick={toggle} className="cursor-pointer bg-transparent hover:bg-transparent text-black">
           <MdOutlineKeyboardDoubleArrowLeft />
         </Button>
       </div>
