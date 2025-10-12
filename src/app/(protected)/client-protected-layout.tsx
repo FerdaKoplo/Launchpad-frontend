@@ -13,8 +13,8 @@ export default function ClientProtectedLayout({ children }: { children: React.Re
     <div className="flex">
       <ResponsiveSidebar>
         <SidebarItem href="/dashboard">Home</SidebarItem>
-        <SidebarItem subMenu={<Link href="/dashboard">Workspace</Link>}>
-          Workspace
+        <SidebarItem href="/workspaces">
+          Workspaces
         </SidebarItem>
       </ResponsiveSidebar>
 
