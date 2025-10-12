@@ -1,6 +1,7 @@
 import { api } from "@/api/api"
 import { CreateWorkspacePayload } from "@/interfaces/create-workspace.interface"
 import { UpdateWorkspacePayload } from "@/interfaces/update-workspace.interface"
+import { WorkspaceFilter } from "@/interfaces/workspace-filter.interface"
 
 export const getUserWorkspace = async (userId: string) => {
   const res = await api.get('/workspace', { params: userId })
@@ -26,4 +27,9 @@ export const deleteWorkspace = async (id: string) => {
   const res = await api.delete(`/workspace/${id}`)
   return res.data
 
+}
+
+export const filterWorkspaces = async (filter?: WorkspaceFilter) => {
+  const res = await api.get("/workspace/filter", { params: filter })
+  return res.data
 }
